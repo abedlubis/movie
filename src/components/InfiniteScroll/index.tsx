@@ -3,7 +3,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { IHomeModuleOwnState } from '../../modules/home/types';
 import Loader from '../../assets/loader.svg';
-import { ISearchModuleOwnState } from '../../modules/search/types';
 import NoActivity from '../NoMovieFound';
 
 interface IInfiniteScrollProps {
@@ -21,10 +20,7 @@ const InfiniteScroll: React.FC<IInfiniteScrollProps> = (props) => {
   const movieList = useSelector(
     (state: IHomeModuleOwnState) => state.homeState.movies
   );
-  const isSearch = useSelector(
-    (state: ISearchModuleOwnState) => state.searchState.isSearch
-  );
-
+  
   useEffect(() => {
     const observer = new IntersectionObserver(onIntersection, {
       rootMargin: `0px 0px 0px 0px`,
@@ -70,7 +66,7 @@ const InfiniteScroll: React.FC<IInfiniteScrollProps> = (props) => {
         }}
       >
         {isLoading ? <img src={Loader} alt="loading..." /> : null}
-        {!isLoading && !isLoadMore && !isSearch && movieList.length !== 0
+        {!isLoading && !isLoadMore && movieList.length !== 0
           ? 'No more activity'
           : null}
         {!isLoading && movieList.length === 0 ? (

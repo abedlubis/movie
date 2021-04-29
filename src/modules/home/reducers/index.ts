@@ -1,12 +1,8 @@
 import {
   HOME_LOADING,
-  EVENT_LIST,
-  CHANNEL_LIST,
-  ADD_EVENT_LIST,
   ADD_MOVIE_LIST,
   IHomeState,
   HomeActionTypes,
-  IEventsState,
   IMovieSingle,
   TOTAL_RESULTS,
 } from '../types';
@@ -24,14 +20,6 @@ const homeReducer = (
       return { ...state, movies };
     case HOME_LOADING:
       return { ...state, loading: action.loading };
-    case EVENT_LIST:
-      return { ...state, events: action.events };
-    case ADD_EVENT_LIST:
-      const list: IEventsState[] = [...state.events, ...action.events];
-      localStorage.setItem('events', JSON.stringify(list));
-      return { ...state, events: list };
-    case CHANNEL_LIST:
-      return { ...state, channel: action.channel };
     case TOTAL_RESULTS:
       return { ...state, totalMovies: action.totalResults };
     default:
