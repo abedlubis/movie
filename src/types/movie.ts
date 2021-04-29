@@ -1,0 +1,1 @@
+export type TMovieSearchType = 'movie' | 'series' | 'episode';

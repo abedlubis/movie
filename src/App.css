@@ -1,10 +1,31 @@
+:root {
+  --border-width: 2px;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  transition: margin-left 0.5s;
+}
+
+.App.open {
+  margin-left: 260px;
+}
+
+.App.close {
+  margin-left: 0;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,11 +49,35 @@
   color: #61dafb;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .App.open {
+    margin: 0 auto;
+  }
+
+  .App.close {
+    margin: 0 auto;
+  }
+
+  .container {
+    max-width: 37.5rem;
   }
 }

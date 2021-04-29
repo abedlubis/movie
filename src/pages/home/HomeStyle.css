@@ -1,0 +1,12 @@
+.Home {
+  padding-left: 16px;
+  box-sizing: border-box;
+}
+
+.movie-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
